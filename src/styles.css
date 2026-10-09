@@ -388,3 +388,12 @@
 
 .countdown-complete{display:flex;align-items:center;max-width:230px;min-height:72px;color:#d9dfeb;font-size:13px;line-height:1.7}
 @media(max-width:850px){.countdown-complete{max-width:none;min-height:0;justify-content:center;text-align:center}}
+
+/* Header brand: keep event identity readable without crowding navigation. */
+.brand{display:flex;align-items:center;gap:12px;max-width:100%;min-width:0}
+.brand img{width:146px;max-width:46vw}
+.site-brand-name{display:inline-block;max-width:156px;padding-left:12px;border-left:1px solid var(--line);color:#d6dce6;font-family:var(--mono);font-size:8px;font-weight:500;letter-spacing:.75px;line-height:1.55;text-wrap:balance}
+@media(max-width:1200px){.brand img{width:132px}.site-brand-name{max-width:126px;font-size:7px;letter-spacing:.45px;padding-left:10px}}
+@media(max-width:850px){.brand img{width:156px}.site-brand-name{display:none}}
+@media(max-width:600px){.brand img{width:142px}}
+@media(max-width:360px){.brand img{width:126px}}
