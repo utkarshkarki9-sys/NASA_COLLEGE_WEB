@@ -236,6 +236,8 @@ export default function Layout() {
 
             }
 
+            id="primary-navigation"
+
             aria-label="Main navigation"
 
           >
@@ -246,6 +248,8 @@ export default function Layout() {
 
               ['/about', 'About'],
 
+              ['/space-apps', 'Challenges'],
+
               ['/highlights', 'Experience'],
 
               ['/gallery', 'Gallery'],
@@ -253,6 +257,8 @@ export default function Layout() {
               ['/schedule', 'Schedule'],
 
               ['/faq', 'FAQs'],
+
+              ['/admin/login', 'Organizer'],
 
             ].map(([path, label]) => (
 
@@ -339,6 +345,10 @@ export default function Layout() {
               }
 
               aria-expanded={open}
+
+              aria-controls="primary-navigation"
+
+              type="button"
 
               onClick={() =>
 
