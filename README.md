@@ -1,6 +1,6 @@
 # ASTROVERSE
 
-A space-themed React + Vite event website and real team-registration platform for NASA International Space Apps Challenge 2026, hosted at Birla Institute of Applied Sciences, Bhimtal, Uttarakhand, on **14–15 November 2026**.
+A space-themed React + Vite event website and real team-registration platform for NASA International Space Apps Challenge 2026, hosted at Birla Institute of Applied Sciences, Bhimtal, Uttarakhand, on **14–16 November 2026**.
 
 The event brand is **ASTROVERSE**. The venue and institute are separate identifiers, never part of the event name.
 

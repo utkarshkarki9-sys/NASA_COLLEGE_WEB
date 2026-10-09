@@ -236,6 +236,8 @@ export default function Layout() {
 
             }
 
+            id="primary-navigation"
+
             aria-label="Main navigation"
 
           >
@@ -246,6 +248,8 @@ export default function Layout() {
 
               ['/about', 'About'],
 
+              ['/space-apps', 'Challenges'],
+
               ['/highlights', 'Experience'],
 
               ['/gallery', 'Gallery'],
@@ -253,6 +257,8 @@ export default function Layout() {
               ['/schedule', 'Schedule'],
 
               ['/faq', 'FAQs'],
+
+              [user?.roles?.includes('admin') ? '/admin' : '/admin/login', user?.roles?.includes('admin') ? 'Mission control' : 'Organizer'],
 
             ].map(([path, label]) => (
 
@@ -339,6 +345,10 @@ export default function Layout() {
               }
 
               aria-expanded={open}
+
+              aria-controls="primary-navigation"
+
+              type="button"
 
               onClick={() =>
 
@@ -595,9 +605,9 @@ export default function Layout() {
 
             </Link>
 
-            <Link to="/admin/login">
+            <Link to={user?.roles?.includes('admin') ? '/admin' : '/admin/login'}>
 
-              Organizer access
+              {user?.roles?.includes('admin') ? 'Mission control' : 'Organizer access'}
 
               <ArrowRight
 

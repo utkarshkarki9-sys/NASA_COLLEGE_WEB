@@ -58,14 +58,17 @@ export default function Login({ admin = false, registration = false }: { admin?:
         }
         navigate(admin ? '/admin' : returnTo);
       }
-    } catch (caught: any) {
-      setError(
-        caught?.status === 401 || caught?.status === 400
+    } catch (caught: unknown) {
+      const status = typeof caught === 'object' && caught !== null && 'status' in caught
+        ? (caught as { status?: unknown }).status
+        : undefined;
+      const statusMessage =
+        status === 401 || status === 400
           ? 'Check your email and password. Confirm your email first if you recently created an account.'
-          : caught?.status === 422
+          : status === 422
             ? 'Check your details. This email may already have an account, or the password may not meet requirements.'
-            : 'We couldn’t complete this account request. Try again, or request a recovery link if you already have an account.'
-      );
+            : 'We couldn’t complete this account request. Try again, or request a recovery link if you already have an account.';
+      setError(statusMessage);
     } finally {
       setBusy(false);
     }
