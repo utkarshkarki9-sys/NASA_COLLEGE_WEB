@@ -258,7 +258,7 @@ export default function Layout() {
 
               ['/faq', 'FAQs'],
 
-              ['/admin/login', 'Organizer'],
+              [user?.roles?.includes('admin') ? '/admin' : '/admin/login', user?.roles?.includes('admin') ? 'Mission control' : 'Organizer'],
 
             ].map(([path, label]) => (
 
@@ -605,9 +605,9 @@ export default function Layout() {
 
             </Link>
 
-            <Link to="/admin/login">
+            <Link to={user?.roles?.includes('admin') ? '/admin' : '/admin/login'}>
 
-              Organizer access
+              {user?.roles?.includes('admin') ? 'Mission control' : 'Organizer access'}
 
               <ArrowRight
 
