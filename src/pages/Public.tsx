@@ -1368,24 +1368,15 @@ function Hero() {
 
 
           <a
-
-          className="button secondary"
-
-          href="https://astroverse.in/"
-
-          target="_blank"
-
-          rel="noopener noreferrer"
-
-          aria-label="Visit Astroverse official website"
-
-        >
-
-          Explore ASTROVERSE
-
-          <ArrowUpRight size={17} />
-
-        </a>
+            className="button secondary problem-statements-cta"
+            href="https://www.spaceappschallenge.org/2026/challenges/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Explore NASA Space Apps Challenge 2026 problem statements"
+          >
+            NASA SPACE APPS CHALLENGE 2026 | PROBLEM STATEMENTS
+            <ArrowUpRight size={17} />
+          </a>
 
 
 
