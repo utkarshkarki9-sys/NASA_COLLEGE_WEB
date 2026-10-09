@@ -1,15 +1,16 @@
 export const event = {
   name: 'NASA International Space Apps Challenge 2026',
   brand: 'ASTROVERSE',
-  dates: '14–15 November 2026',
+  dates: '14–16 November 2026',
   venue: 'Birla Institute of Applied Sciences',
   location: 'Bhimtal, Uttarakhand',
   startsAt: '2026-11-14T00:00:00+05:30',
+  endsAt: '2026-11-16T23:59:59+05:30',
 };
 
 export const siteName = 'ASTROVERSE';
 
-export const siteDescription = 'NASA Space Apps Challenge 2026 at Birla Institute of Applied Sciences, Bhimtal, on 14–15 November 2026.';
+export const siteDescription = 'NASA Space Apps Challenge 2026 at Birla Institute of Applied Sciences, Bhimtal, on 14–16 November 2026.';
 
 export const captions = [
   'A room full of possibilities',
@@ -72,7 +73,7 @@ export const faqs = [
   ],
   [
     'Where and when is the event?',
-    'ASTROVERSE takes place on 14–15 November 2026 at Birla Institute of Applied Sciences, Bhimtal, Uttarakhand.',
+    'ASTROVERSE takes place on 14–16 November 2026 at Birla Institute of Applied Sciences, Bhimtal, Uttarakhand.',
   ],
   [
     'What happens after registration?',
