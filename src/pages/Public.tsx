@@ -423,428 +423,57 @@ const displaySchedule = scheduleForDisplay.some((day) => day.day === '16')
 
 
 function Countdown() {
-
-
-
-
-
-
-
-  const [remaining, setRemaining] = useState(
-
-
-
-
-
-
-
-    Math.max(
-
-
-
-
-
-
-
-      0,
-
-
-
-
-
-
-
-      new Date(event.startsAt).getTime() - Date.now()
-
-
-
-
-
-
-
-    )
-
-
-
-
-
-
-
-  );
-
-
-
-
-
-
-
-  useEffect(() => {
-
-
-
-
-
-
-
-    const timer = setInterval(() => {
-
-
-
-
-
-
-
-      setRemaining(
-
-
-
-
-
-
-
-        Math.max(
-
-
-
-
-
-
-
-          0,
-
-
-
-
-
-
-
-          new Date(event.startsAt).getTime() - Date.now()
-
-
-
-
-
-
-
-        )
-
-
-
-
-
-
-
-      );
-
-
-
-
-
-
-
-    }, 1000);
-
-
-
-
-
-
-
-    return () => clearInterval(timer);
-
-
-
-
-
-
-
-  }, []);
-
-
-
-
-
-
-
-  const values = [
-
-
-
-
-
-
-
-    Math.floor(remaining / 86400000),
-
-
-
-
-
-
-
-    Math.floor(remaining / 3600000) % 24,
-
-
-
-
-
-
-
-    Math.floor(remaining / 60000) % 60,
-
-
-
-
-
-
-
-    Math.floor(remaining / 1000) % 60,
-
-
-
-
-
-
-
-  ];
-
-
-
-
-
-
-
-  return (
-
-
-
-
-
-
-
-    <div className="countdown">
-
-
-
-
-
-
-
-      <div className="countdown-label">
-
-
-
-
-
-
-
-        <span className="live-dot" />
-
-
-
-
-
-
-
-        {remaining
-
-
-
-
-
-
-
-          ? 'COUNTDOWN TO LIFTOFF'
-
-
-
-
-
-
-
-          : 'THE MISSION IS HERE'}
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
-
-
-      <div className="countdown-numbers">
-
-
-
-
-
-
-
-        {values.map((value, index) => (
-
-
-
-
-
-
-
-          <div key={index}>
-
-
-
-
-
-
-
-            <strong>
-
-
-
-
-
-
-
-              {String(value).padStart(2, '0')}
-
-
-
-
-
-
-
-            </strong>
-
-
-
-
-
-
-
-            <span>
-
-
-
-
-
-
-
-              {[
-
-
-
-
-
-
-
-                'DAYS',
-
-
-
-
-
-
-
-                'HOURS',
-
-
-
-
-
-
-
-                'MINUTES',
-
-
-
-
-
-
-
-                'SECONDS',
-
-
-
-
-
-
-
-              ][index]}
-
-
-
-
-
-
-
-            </span>
-
-
-
-
-
-
-
-            {index < 3 && <b>:</b>}
-
-
-
-
-
-
-
-          </div>
-
-
-
-
-
-
-
-        ))}
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-  );
-
-
-
-
-
-
-
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const startsAt = new Date(event.startsAt).getTime();
+  const endsAt = new Date(event.endsAt).getTime();
+  const status = now < startsAt ? 'upcoming' : now <= endsAt ? 'live' : 'complete';
+  const target = status === 'upcoming' ? startsAt : endsAt;
+  const remaining = Math.max(0, target - now);
+  const values = [
+    Math.floor(remaining / 86400000),
+    Math.floor(remaining / 3600000) % 24,
+    Math.floor(remaining / 60000) % 60,
+    Math.floor(remaining / 1000) % 60,
+  ];
+  const label = status === 'upcoming'
+    ? 'COUNTDOWN TO LIFTOFF'
+    : status === 'live'
+      ? 'MISSION IN PROGRESS'
+      : 'MISSION COMPLETE';
+
+  return (
+    <div className="countdown" aria-label={label}>
+      <div className="countdown-label">
+        <span className="live-dot" />
+        {label}
+      </div>
+      {status === 'complete' ? (
+        <div className="countdown-complete" role="status">
+          Thanks for being part of the ASTROVERSE mission.
+        </div>
+      ) : (
+        <div
+          className="countdown-numbers"
+          aria-label={status === 'upcoming' ? 'Time until the event starts' : 'Time until the event ends'}
+        >
+          {values.map((value, index) => (
+            <div key={index}>
+              <strong>{String(value).padStart(2, '0')}</strong>
+              <span>{['DAYS', 'HOURS', 'MINUTES', 'SECONDS'][index]}</span>
+              {index < 3 && <b>:</b>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
-
-
-
-
-
-
 
 function Hero() {
 
