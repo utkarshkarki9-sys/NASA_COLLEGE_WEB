@@ -397,3 +397,5 @@
 @media(max-width:850px){.brand img{width:156px}.site-brand-name{display:none}}
 @media(max-width:600px){.brand img{width:142px}}
 @media(max-width:360px){.brand img{width:126px}}
+
+@media(min-width:851px) and (max-width:1020px){.nav{gap:14px}.nav>a{font-size:10px}.nav-actions{gap:10px}.nav-register{padding:10px 10px;gap:7px}.site-brand-name{display:none}}
