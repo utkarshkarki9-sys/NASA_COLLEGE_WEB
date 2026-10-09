@@ -32,6 +32,6 @@ IDs come from a PostgreSQL sequence/trigger. QR codes contain a random verificat
 
 The signup/confirmation/recovery/invitation callback runs in the root auth provider, not inside a protected route. Keep callback processing safe under React Strict Mode. Camera streams must stop when the scanner closes or unmounts. CSV exports must stay admin-only and neutralize formula injection.
 
-Do not invent event fee information, organizer contact channels, videos, or exact session times. Keep the supplied November 14–15, 2026 local event dates. Media supports privacy-enhanced YouTube and local files via `src/data.ts`.
+Do not invent event fee information, organizer contact channels, videos, or exact session times. Keep the supplied November 14–16, 2026 local event dates. Media supports privacy-enhanced YouTube and local files via `src/data.ts`.
 
 For local service-backed development use `netlify dev --port 8889` with a linked Netlify project. Static Vercel routing is provided, but the backend requires Netlify. This build environment forbids manual build/dev/test validation commands; the automated pipeline performs compilation. Future sessions should obey their active environment instructions. Do not create commits or read `.git` internals. Recreate the public source ZIP after any final source change, excluding secrets, dependencies, build output, and the archive itself.
