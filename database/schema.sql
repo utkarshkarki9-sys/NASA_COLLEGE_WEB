@@ -192,7 +192,7 @@ LANGUAGE sql STABLE SECURITY DEFINER SET search_path = public, pg_temp AS $$
   SELECT r.registration_id, t.name, t.institution, r.status, t.declared_size, EXISTS(SELECT 1 FROM verification_records v WHERE v.registration_id=r.id)
   FROM registrations r JOIN teams t ON t.id=r.team_id WHERE r.verification_token=reference;
 $$;
-INSERT INTO events(id,name,starts_at,ends_at,venue) VALUES ('astroverse-2026','NASA International Space Apps Challenge 2026','2026-11-14T00:00:00+05:30','2026-11-15T23:59:59+05:30','Birla Institute of Applied Sciences, Bhimtal, Uttarakhand');
+INSERT INTO events(id,name,starts_at,ends_at,venue) VALUES ('astroverse-2026','NASA International Space Apps Challenge 2026','2026-11-14T00:00:00+05:30','2026-11-16T23:59:59+05:30','Birla Institute of Applied Sciences, Bhimtal, Uttarakhand');
 INSERT INTO gallery(path,caption,position)
 SELECT '/gallery/event-' || lpad(number::text,2,'0') || '.jpeg',
   (ARRAY['A room full of possibilities','Sharing ideas at Space Apps','Celebrating the innovators','Our Space Apps community','Ideas take the stage','Learning together','Recognizing creative solutions','The teams behind the ideas','Building real-world prototypes','A new generation of problem solvers','From concepts to code','One team. Many possibilities.','Mentorship in action','Collaboration at the workstations','Working through the challenge','The campus comes together','Engineering a new perspective','Stories from the launchpad','A moment of discovery','Exploring beyond the classroom'])[number], number
