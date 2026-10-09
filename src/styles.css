@@ -399,3 +399,9 @@
 @media(max-width:360px){.brand img{width:126px}}
 
 @media(min-width:851px) and (max-width:1020px){.nav{gap:14px}.nav>a{font-size:10px}.nav-actions{gap:10px}.nav-register{padding:10px 10px;gap:7px}.site-brand-name{display:none}}
+
+/* The longer NASA challenge link must remain readable at every viewport. */
+.hero-buttons{flex-wrap:wrap;align-items:center}
+.hero-buttons .problem-statements-cta{max-width:100%;white-space:normal;text-align:left;line-height:1.45;gap:12px}
+.hero-buttons .problem-statements-cta svg{flex:0 0 auto}
+@media(max-width:600px){.hero-buttons{align-items:stretch}.hero-buttons .problem-statements-cta{flex:1 1 100%;justify-content:space-between;max-width:100%;overflow-wrap:anywhere}}
